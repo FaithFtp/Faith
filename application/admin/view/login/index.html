@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Document</title>
+    <link href="__STATIC__/Login/css/login.css" rel="stylesheet" />
+    <link href="__STATIC__/Login/css/verify.css" rel="stylesheet" />
+    <script src="__STATIC__/Login/js/jquery.js"></script>
+    <script src="__STATIC__/Login/js/verify.js"></script>
+</head>
+
+<body id="botAgregar">
+    <div class="page-container">
+        <h1>Login</h1>
+        <form action="{:url('login/isLogin')}" method="post">
+            <input class="username" name="user_name" placeholder="Username" type="text" />
+            <input class="password" name="password" placeholder="Password" type="password" />
+            <div id="mpanel1" style="margin-top: 10px;">
+            </div>
+            <button id="button" type="submit">登录</button>
+        </form>
+    </div>
+</body>
+<!-- jQuery树叶掉落特效代码 -->
+<script type="text/javascript">
+$.AutomLeafStart({
+    leafsfolder: "__STATIC__/Login/images/",
+    howmanyimgsare: 8,
+    initialleafs: 10,
+    maxYposition: -10,
+    multiplyclick: true,
+    multiplynumber: 2,
+    infinite: true,
+    fallingsequence: 4000
+});
+$("#botAgregar").on("click", function() {
+    $.AutomLeafAdd({
+        leafsfolder: "__STATIC__/Login/images/",
+        add: 8,
+    })
+});
+// 滑动解锁
+$('#mpanel1').slideVerify({
+    type: 1, //类型
+    vOffset: 5, //误差量，根据需求自行调整
+    barSize: {
+        width: '300px',
+        height: '40px',
+    },
+    ready: function() {},
+    success: function() {
+        alert('验证成功，添加你自己的代码！');
+        //......后续操作
+    },
+    error: function() {
+        //alert('验证失败！');
+    }
+});
+</script>
+
+</html>
